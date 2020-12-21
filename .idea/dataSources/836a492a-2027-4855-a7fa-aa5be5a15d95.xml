@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL for 5.1 - @localhost">
+  <database-model serializer="dbm" dbms="UNKNOWN" family-id="UNKNOWN" format-version="4.19">
+    <root id="1">
+      <ServerVersion>0.0</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <database id="2" parent="1" name="e-commerce"/>
+    <database id="3" parent="1" name="information_schema"/>
+    <database id="4" parent="1" name="kaoshi"/>
+    <database id="5" parent="1" name="level3linkage"/>
+    <database id="6" parent="1" name="liuzhiyumairouguanlixitong"/>
+    <database id="7" parent="1" name="mana_3"/>
+    <database id="8" parent="1" name="mysql"/>
+    <database id="9" parent="1" name="powermanager"/>
+    <database id="10" parent="1" name="quanxian"/>
+    <database id="11" parent="1" name="springmybatistext"/>
+    <database id="12" parent="1" name="ssm"/>
+    <database id="13" parent="1" name="sstudent"/>
+    <database id="14" parent="1" name="stu"/>
+    <database id="15" parent="1" name="student"/>
+    <database id="16" parent="1" name="stumanasystem"/>
+    <database id="17" parent="1" name="test"/>
+    <database id="18" parent="1" name="zx_permissions_system"/>
+    <database id="19" parent="1"/>
+    <schema id="20" parent="18">
+      <Current>1</Current>
+    </schema>
+    <table id="21" parent="20" name="dept"/>
+    <table id="22" parent="20" name="emp"/>
+    <table id="23" parent="20" name="menu"/>
+    <table id="24" parent="20" name="role"/>
+    <table id="25" parent="20" name="roleandaction"/>
+    <table id="26" parent="20" name="roleandaction_copy1"/>
+    <table id="27" parent="20" name="roleandmenu"/>
+    <table id="28" parent="20" name="roleandmenu_copy1"/>
+    <table id="29" parent="20" name="sysaction"/>
+    <table id="30" parent="20" name="user"/>
+    <column id="31" parent="21" name="deptId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="32" parent="21" name="deptName">
+      <Position>2</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+    </column>
+    <column id="33" parent="21" name="tel">
+      <Position>3</Position>
+      <DataType>VARCHAR(20)|12s</DataType>
+    </column>
+    <column id="34" parent="21" name="linkman">
+      <Position>4</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="35" parent="21" name="address">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="36" parent="21" name="remark">
+      <Position>6</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <index id="37" parent="21" name="deptId">
+      <ColNames>deptId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="21" name="deptId">
+      <ColNames>deptId</ColNames>
+    </key>
+    <column id="39" parent="22" name="empId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="40" parent="22" name="empName">
+      <Position>2</Position>
+      <DataType>VARCHAR(20)|12s</DataType>
+    </column>
+    <column id="41" parent="22" name="tel">
+      <Position>3</Position>
+      <DataType>VARCHAR(20)|12s</DataType>
+    </column>
+    <column id="42" parent="22" name="type">
+      <Position>4</Position>
+      <DataType>VARCHAR(20)|12s</DataType>
+    </column>
+    <column id="43" parent="22" name="remark">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="44" parent="22" name="deptId">
+      <Position>6</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="45" parent="22" name="empId">
+      <ColNames>empId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="22" name="empId">
+      <ColNames>empId</ColNames>
+    </key>
+    <column id="47" parent="23" name="menuId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="48" parent="23" name="menuName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="49" parent="23" name="type">
+      <Position>3</Position>
+      <DataType>VARCHAR(20)|12s</DataType>
+    </column>
+    <column id="50" parent="23" name="actionId">
+      <Position>4</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="51" parent="23" name="parentId">
+      <Position>5</Position>
+      <DataType>INT(10)|4s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="52" parent="23" name="remark">
+      <Position>6</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <index id="53" parent="23" name="menuId">
+      <ColNames>menuId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="23" name="menuId">
+      <ColNames>menuId</ColNames>
+    </key>
+    <column id="55" parent="24" name="roleId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="56" parent="24" name="roleName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <index id="57" parent="24" name="roleId">
+      <ColNames>roleId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="58" parent="24" name="roleId">
+      <ColNames>roleId</ColNames>
+    </key>
+    <column id="59" parent="25" name="raId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="60" parent="25" name="roleId">
+      <Position>2</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="61" parent="25" name="actionId">
+      <Position>3</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="62" parent="25" name="PRIMARY">
+      <ColNames>raId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="25" name="PRIMARY">
+      <ColNames>raId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="26" name="raId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="65" parent="26" name="roleId">
+      <Position>2</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="66" parent="26" name="actionId">
+      <Position>3</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="67" parent="26" name="PRIMARY">
+      <ColNames>raId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="26" name="PRIMARY">
+      <ColNames>raId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="27" name="roleAndMenuId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="70" parent="27" name="roleId">
+      <Position>2</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="71" parent="27" name="menuId">
+      <Position>3</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="72" parent="27" name="PRIMARY">
+      <ColNames>roleAndMenuId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="27" name="PRIMARY">
+      <ColNames>roleAndMenuId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="28" name="roleAndMenuId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="75" parent="28" name="roleId">
+      <Position>2</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="76" parent="28" name="menuId">
+      <Position>3</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="77" parent="28" name="PRIMARY">
+      <ColNames>roleAndMenuId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="28" name="PRIMARY">
+      <ColNames>roleAndMenuId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="79" parent="29" name="actionId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="80" parent="29" name="actionName">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="81" parent="29" name="type">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="82" parent="29" name="menuId">
+      <Position>4</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="83" parent="29" name="remark">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <index id="84" parent="29" name="actionId">
+      <ColNames>actionId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="29" name="actionId">
+      <ColNames>actionId</ColNames>
+    </key>
+    <column id="86" parent="30" name="userId">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="87" parent="30" name="account">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="88" parent="30" name="passwd">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="89" parent="30" name="roleId">
+      <Position>4</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <column id="90" parent="30" name="state">
+      <Position>5</Position>
+      <DataType>INT UNSIGNED(10)|4s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <index id="91" parent="30" name="userId">
+      <ColNames>userId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="92" parent="30" name="userId">
+      <ColNames>userId</ColNames>
+    </key>
+  </database-model>
+</dataSource>

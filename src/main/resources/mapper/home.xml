@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HomeDao">
+    <resultMap id="menuMap" type="com.entity.Menu">
+        <result column="menuId" property="menuId"/>
+        <result column="menuName" property="menuName"/>
+        <result column="type" property="type"/>
+        <result column="actionId" property="actionId"/>
+        <result column="parentId" property="parentId"/>
+        <result column="remark" property="remark"/>
+        <result column="typeName" property="typeName"/>
+        <!--
+         <collection property="sysAction" ofType="com.entity.SysAction">
+        -->
+        <association property="sysAction" javaType="com.entity.SysAction">
+            <result column="actionId" property="actionId"/>
+            <result column="actionName" property="actionName"/>
+            <result column="type" property="type"/>
+            <result column="menuId" property="menuId"/>
+            <result column="remark" property="remark"/>
+        </association>
+    </resultMap>
+
+<!--    查询对应的role-->
+    <select id="roleId" parameterType="string" resultType="integer">
+        SELECT roleId FROM `user` WHERE account = #{name}
+    </select>
+<!--    带登陆人的目录-->
+    <select id="homeAll" parameterType="com.entity.MandR" resultMap="menuMap">
+        SELECT menu.menuId,menu.menuName,menu.type,menu.actionId,menu.parentId,
+        menu.remark,sysaction.actionId,sysaction.actionName,
+        sysaction.type,sysaction.menuId,sysaction.remark
+        FROM menu,sysaction,roleandmenu
+        WHERE menu.actionId = sysaction.actionId
+        AND menu.parentId = #{parentId}
+        AND menu.menuId = roleandmenu.menuId
+        AND roleandmenu.roleId = #{roleId}
+    </select>
+
+
+    <!--一二级目录-->
+    <select id="twoLoadMenu" resultMap="menuMap" parameterType="integer">
+        SELECT menu.menuId,menu.menuName,menu.type,menu.actionId,menu.parentId,
+        menu.remark,sysaction.actionId,sysaction.actionName,
+        sysaction.type,sysaction.menuId,sysaction.remark
+        FROM menu,sysaction
+        WHERE menu.actionId = sysaction.actionId
+        AND menu.parentId = #{faId}
+    </select>
+        <!--顶级目录-->
+    <select id="heardLoadMenu" resultMap="menuMap" parameterType="integer">
+        SELECT menu.menuId,menu.menuName,menu.type,menu.actionId,menu.parentId,menu.remark
+        FROM menu
+        WHERE menu.actionId = #{type}
+    </select>
+</mapper>

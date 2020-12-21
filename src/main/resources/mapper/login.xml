@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.LoginDao">
+    <select id="isLogin" parameterType="com.entity.User" resultType="integer">
+        SELECT COUNT(1) FROM user WHERE account = #{account} AND passwd = #{passwd}
+    </select>
+</mapper>

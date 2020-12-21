@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.EmpDao">
+<!--    查询部门类别-->
+    <select id="selectDept" resultType="com.entity.Dept" parameterType="com.entity.Dept">
+        SELECT * FROM dept
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="deptName != null and deptName != ''">
+                deptName = #{deptName}
+            </if>
+            <if test="address != null and address != ''">
+                AND address = #{address}
+            </if>
+        </trim>
+    </select>
+<!--    查询职位类别-->
+    <select id="selectEmp" resultType="com.entity.Emp">
+        SELECT * FROM emp GROUP BY type
+    </select>
+<!--    部门管理列表-->
+    <select id="empManage_listEmp" resultType="com.entity.Emp" parameterType="com.entity.Emp">
+        SELECT emp.empId,emp.empName,emp.tel,emp.type,emp.remark,emp.deptId,dept.deptName
+        FROM emp,dept
+        WHERE emp.deptId = dept.deptId
+        <if test="empName != null">
+            AND empName = #{empName}
+        </if>
+        ORDER BY empId
+    </select>
+    <insert id="empManage_addEmp" parameterType="com.entity.Emp">
+        INSERT INTO emp (emp.empName,emp.tel,emp.type,emp.remark,emp.deptId)
+        VALUES (#{empName},#{tel},#{type},#{remark},#{deptId})
+    </insert>
+<!--    根据id查询一个员工数据-->
+    <select id="toEditEmp" parameterType="integer" resultType="com.entity.Emp">
+        SELECT * FROM emp WHERE empId = #{empId}
+    </select>
+<!--    修改一条数据-->
+    <update id="editEmp" parameterType="com.entity.Emp">
+        UPDATE emp
+        SET empName=#{empName},tel = #{tel},type=#{type},remark=#{remark},deptId=#{deptId}
+        WHERE empId = #{empId}
+    </update>
+<!--    查询产品数据-->
+    <select id="toEditDept" resultType="com.entity.Dept">
+        SELECT * FROM dept where deptId = #{deptId}
+    </select>
+<!--    修改一条数据-->
+    <update id="editDept" parameterType="com.entity.Dept">
+        UPDATE dept
+        SET deptName = #{deptName},tel =#{tel},linkman=#{linkman},address=#{address},remark=#{remark}
+        WHERE deptId = #{deptId}
+    </update>
+    <delete id="delDept" parameterType="integer">
+        DELETE FROM dept WHERE dept.deptId = #{deptId}
+    </delete>
+<!--    插入表-->
+    <update id="insetDept" parameterType="com.entity.Dept">
+        INSERT INTO dept (deptName,tel,linkman,address,remark)
+        VALUES (#{deptName},#{tel},#{linkman},#{address},#{remark})
+    </update>
+
+</mapper>

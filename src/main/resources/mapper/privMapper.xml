@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PrivDao">
+    <select id="privManage_init" resultType="com.entity.Role">
+        SELECT role.roleId,role.roleName
+        FROM role
+    </select>
+<!--    查询所有-->
+    <select id="privManage_loadPrivsMenu" resultType="integer">
+        SELECT roleandmenu.menuId
+        FROM roleandmenu
+        WHERE roleandmenu.roleId = #{roleId}
+    </select>
+    <select id="privManage_loadPrivsAction" resultType="integer">
+        SELECT actionId
+        FROM roleandaction
+        WHERE roleId = #{roleId}
+    </select>
+<!--    1.删除-->
+    <delete id="privManage_savePrivsDelMenu" parameterType="integer">
+        DELETE FROM roleandmenu
+        WHERE  roleandmenu.roleId = #{roleId}
+    </delete>
+    <delete id="privManage_savePrivsDelAction" parameterType="integer">
+        DELETE FROM roleandaction
+        WHERE roleandaction.roleId = #{roleId}
+    </delete>
+    <insert id="privManage_savePrivsInsertMenu" parameterType="com.entity.SavePrivs">
+        INSERT roleandmenu (roleandmenu.roleId,roleandmenu.menuId)
+        VALUES (#{roleId},#{menuId})
+    </insert>
+    <insert id="privManage_savePrivsInsertAction" parameterType="com.entity.SavePrivs">
+        INSERT roleandaction (roleandaction.roleId,roleandaction.actionId)
+        VALUES (#{roleId},#{actionId})
+    </insert>
+</mapper>
